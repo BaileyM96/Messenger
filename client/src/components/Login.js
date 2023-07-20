@@ -1,4 +1,3 @@
-//TODO Allow the uer to be able to login with the input fields
 import { StyledButton } from './styled/Buttons.styled';
 import { Label, Input } from './styled/Inputs.styled';
 import { StyledForm, StyledDiv } from './styled/Form.styled';

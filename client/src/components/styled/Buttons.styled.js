@@ -3,5 +3,7 @@ import { Button } from 'semantic-ui-react';
 
 export const StyledButton = styled(Button)`
     background: none;
-    background-color: #3C91E6 !important;
+    color: white !important;
+    background-color: #DE17A5 !important;
+    max-width: 100%;
 `;

@@ -2,9 +2,9 @@ import { styled } from "styled-components";
 import { Form } from "semantic-ui-react";
 
 export const StyledForm = styled(Form)`
-display: flex !important;
+/* display: flex !important;
 flex-direction: column !important;
-// justify-content: center !important;
+justify-content: center !important; */
 `;
 
 export const StyledDiv = styled.div`
