@@ -1,5 +1,5 @@
 import { H1 } from "./styled/Headers.styled"
-import { StyledForm, StyledDiv } from "./styled/Form.styled";
+import { StyledForm } from "./styled/Form.styled";
 import { Label, Input } from "./styled/Inputs.styled";
 import { StyledButton } from "./styled/Buttons.styled";
 import { StyledContainer, Junk } from "./styled/Containers.styled";
