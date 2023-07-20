@@ -1,12 +1,19 @@
 import { StyledButton } from './styled/Buttons.styled';
 import { Label, Input } from './styled/Inputs.styled';
-import { StyledForm, StyledDiv } from './styled/Form.styled';
+import { StyledForm } from './styled/Form.styled';
+import { StyledContainer, Junk } from './styled/Containers.styled';
+import { StyledDivider } from './styled/Dividers.styled';
+import { H1 } from './styled/Headers.styled';
 
 //Set form changes
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
+
+//Link the signup page to the login page
+import { Link } from 'react-router-dom';
+
 
 
 //Hanldle the input changes on the page
@@ -46,16 +53,18 @@ const handleSubmit = async (event) => {
 
 
     return (
-        <StyledDiv>
+        <Junk>
+        <StyledContainer>
+            <H1>Login</H1>
         <StyledForm>
             <StyledForm.Field>
-                <Label>email</Label>
+                <Label>Email</Label>
                 <Input 
                 value={formState.email} 
                 onChange={handleInput}  
                 name='email' 
                 type='email' 
-                placeholder='Username' 
+                placeholder='Email' 
                 required>
                 </Input>
             </StyledForm.Field>
@@ -74,7 +83,11 @@ const handleSubmit = async (event) => {
             </StyledForm.Field>
             
             <StyledButton onClick={handleSubmit} type='Login'>Login</StyledButton>
+
+            <StyledDivider horizontal>Or</StyledDivider>
+            <Link to='/Signup'>Dont have an account? Sign up here.</Link>
         </StyledForm>
-        </StyledDiv>      
+        </StyledContainer>
+        </Junk>      
     )
 }

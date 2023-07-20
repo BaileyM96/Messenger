@@ -9,6 +9,11 @@ import {
   createHttpLink
 } from '@apollo/client';
 
+//Browser Router
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+//TODO #1 import react router dom to navigate between pages
+
 const httplink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
 });
@@ -24,21 +29,31 @@ const authLink = setContext((_, { headers }) => {
   }
 });
 
-//Keep following the apollo website to create http linking/Love.Dev repo.
+
 const client = new ApolloClient({
   link: authLink.concat(httplink),
   cache: new InMemoryCache()
 });
 
+//Use browserRouter to navigate between pages and components
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Router>
     <div className="App">
-      <header className="App-header">
-        <LoginPage />
-        <Signup />
-      </header>
+      <Routes>
+        <Route 
+        path='/'
+        element={<LoginPage />}
+        />
+
+        <Route 
+        path='/Signup'
+        element={<Signup />}
+        />
+      </Routes>
     </div>
+    </Router>
     </ApolloProvider>
   );
 }
