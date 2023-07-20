@@ -1,5 +1,6 @@
 import './App.css';
 import LoginPage from './pages/LoginPage';
+import Signup from './components/Signup';
 import { setContext } from '@apollo/client/link/context';
 import { 
   ApolloClient, 
@@ -35,6 +36,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <LoginPage />
+        <Signup />
       </header>
     </div>
     </ApolloProvider>
