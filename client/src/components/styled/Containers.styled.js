@@ -11,6 +11,7 @@ max-width: 100%;
 overflow-x: hidden !important;
 `;
 
+//Change the name of this later
 export const Junk = styled.div`
 display: flex !important;
 justify-content: center !important;
