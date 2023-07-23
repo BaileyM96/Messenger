@@ -45,3 +45,15 @@ background-color: transparent;
 export const Username = styled.p`
 background-color: transparent;
 `;
+
+export const NavbarContainer = styled.nav`
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+border-style: solid;
+background-color: #1B1C22;
+position: fixed;
+bottom: 0;
+min-height: 9vh;
+width: 100%;
+`;
