@@ -1,6 +1,7 @@
 import './App.css';
 import LoginPage from './pages/LoginPage';
 import Signup from './components/Signup';
+import Homepage from './components/Homepage';
 import { setContext } from '@apollo/client/link/context';
 import { 
   ApolloClient, 
@@ -50,6 +51,11 @@ function App() {
         <Route 
         path='/Signup'
         element={<Signup />}
+        />
+
+        <Route 
+        path='/Homepage'
+        element={<Homepage />}
         />
       </Routes>
     </div>
