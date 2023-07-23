@@ -13,6 +13,7 @@ import Auth from '../utils/auth';
 
 //Link the signup page to the login page
 import { Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 
 
@@ -45,7 +46,8 @@ const handleSubmit = async (event) => {
         })
 
         Auth.login(loginData.login.token);
-        //Possibly add location to make sure the login is succesful
+        //Possibly find a better way to navigate to the homepage
+        window.location.href = '/Homepage'
     } catch (e) {
         console.error(e)
     };
