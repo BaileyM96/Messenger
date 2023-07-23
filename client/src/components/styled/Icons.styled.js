@@ -4,4 +4,9 @@ import { Icon } from "semantic-ui-react";
 export const AdduserIcon = styled(Icon)`
 color: white !important;
 background-color: transparent;
-`
+`;
+
+export const HomeIcon = styled(Icon)`
+color: white !important;
+background-color: transparent;
+`;

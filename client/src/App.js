@@ -2,6 +2,7 @@ import './App.css';
 import LoginPage from './pages/LoginPage';
 import Signup from './components/Signup';
 import Homepage from './components/Homepage';
+import Navbar from './components/Navbar';
 import { setContext } from '@apollo/client/link/context';
 import { 
   ApolloClient, 
@@ -58,6 +59,8 @@ function App() {
         element={<Homepage />}
         />
       </Routes>
+
+      <Navbar />
     </div>
     </Router>
     </ApolloProvider>
