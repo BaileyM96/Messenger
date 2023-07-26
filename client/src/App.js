@@ -2,6 +2,8 @@ import './App.css';
 import LoginPage from './pages/LoginPage';
 import Signup from './components/Signup';
 import Homepage from './components/Homepage';
+import Friends from './components/Friends';
+import Addfriends from './components/Addfriends';
 import Navbar from './components/Navbar';
 import { setContext } from '@apollo/client/link/context';
 import { 
@@ -57,6 +59,16 @@ function App() {
         <Route 
         path='/Homepage'
         element={<Homepage />}
+        />
+
+        <Route 
+        path='/Friends'
+        element={<Friends />}
+        />
+
+        <Route 
+        path='/Addfriends'
+        element={<Addfriends />}
         />
       </Routes>
 

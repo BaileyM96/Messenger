@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { Container } from "semantic-ui-react";
+import { Link } from 'react-router-dom'
 
 export const StyledContainer = styled(Container)`
 display: flex !important;
@@ -56,4 +57,49 @@ position: fixed;
 bottom: 0;
 min-height: 9vh;
 width: 100%;
+`;
+
+export const FriendsHeader = styled.header`
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+padding-left: 19%;
+padding-top: 10%;
+padding-bottom: 10%;
+text-align: center;
+`;
+
+export const AddFriend = styled.section`
+display: flex;
+justify-content: center;
+padding-bottom: 10%;
+flex-direction: column;
+align-items: center;
+`;
+
+export const AddUserContainer = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+padding-left: 5%;
+`;
+
+export const ButtonContainer = styled.div`
+display: flex;
+margin-top: 10%;
+justify-content: center;
+align-items: center;
+`;
+
+export const Linked = styled(Link)`
+padding-right: 22%;
+padding-left: 5px;
+`;
+
+export const FriendsList = styled.section`
+display: flex;
+background-color: #1B1C22;
+align-items: center;
+justify-content: flex-start;
+padding-left: 20px;
 `;

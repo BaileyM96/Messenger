@@ -20,3 +20,19 @@ max-width: 100%;
     border-width: 3px !important;
 }
 `;
+
+export const AddUserInput = styled.input`
+background-color: #1B1C22;
+color: white;
+height: 40px;
+border-radius: 10px;
+width: 95%;
+padding-left: 10px;
+align-items: center;
+
+&:focus {
+    border-color: #DE17A5;
+    border-style: solid;
+    border-width: 3px;
+}
+`;

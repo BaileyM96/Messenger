@@ -12,7 +12,7 @@ export default function Navbar() {
             <Link to='/Homepage'>
                 <HomeIcon name='home' size='large'></HomeIcon>
             </Link>
-            <Link to='/AddFriend'>
+            <Link to='/Friends'>
                 <AdduserIcon name='add user' size='large'></AdduserIcon>
             </Link>
             <Avatar src={myImage} avatar />
