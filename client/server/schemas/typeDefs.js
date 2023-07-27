@@ -11,6 +11,7 @@ type User {
 type Auth {
     token: ID!
     user: User
+    password: String!
 }
 
 type Query {
