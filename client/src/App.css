@@ -10,3 +10,12 @@ html, body {
     overflow-x: hidden;
 }
 
+.ui.message {
+    background: #d84e4e !important;
+}
+
+.ui.message .header {
+    background: #d84e4e !important;
+    color: white !important;
+}
+

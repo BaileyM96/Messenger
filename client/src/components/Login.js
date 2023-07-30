@@ -4,6 +4,9 @@ import { StyledForm } from './styled/Form.styled';
 import { StyledContainer, Junk } from './styled/Containers.styled';
 import { StyledDivider } from './styled/Dividers.styled';
 import { H1 } from './styled/Headers.styled';
+import { Message } from 'semantic-ui-react';
+//Might delete the errorMessage compnent later we will see
+import { ErrorMessage } from './styled/Error/Error.styled';
 
 //Set form changes
 import { useState } from 'react';
@@ -13,13 +16,15 @@ import Auth from '../utils/auth';
 
 //Link the signup page to the login page
 import { Link } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+
 
 
 
 //Hanldle the input changes on the page
 export default function Login() {
 const [formState, setFormState] = useState({ email: '', password: '' });
+//For errors when logging in
+const [credentialError, setCredentialError] = useState('');
 const [login, { error, loginData }] = useMutation(LOGIN);
 
 //Handle the form submission
@@ -50,6 +55,9 @@ const handleSubmit = async (event) => {
         window.location.href = '/Homepage'
     } catch (e) {
         console.error(e)
+        //set the login error with the message
+        setCredentialError(e);
+        console.log(credentialError)
     };
 }
 
@@ -83,13 +91,20 @@ const handleSubmit = async (event) => {
                 required
                 ></Input>
             </StyledForm.Field>
-            
             <StyledButton onClick={handleSubmit} type='Login'>Login</StyledButton>
 
+            {credentialError && (
+                <Message 
+                negative
+                header='You have entered a invalid email or password'
+                content={credentialError}
+                />
+            )}
             <StyledDivider horizontal>Or</StyledDivider>
             <Link to='/Signup'>Dont have an account? Sign up here.</Link>
         </StyledForm>
         </StyledContainer>
+        
         </Junk>      
     )
 }
