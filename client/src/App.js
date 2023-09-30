@@ -5,6 +5,7 @@ import Homepage from './components/Homepage';
 import Friends from './components/Friends';
 import Addfriends from './components/Addfriends';
 import Navbar from './components/Navbar';
+import UserContext from './components/UserContext';
 import { setContext } from '@apollo/client/link/context';
 import { 
   ApolloClient, 
@@ -15,8 +16,8 @@ import {
 
 //Browser Router
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 
-//TODO #1 import react router dom to navigate between pages
 
 const httplink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -41,7 +42,10 @@ const client = new ApolloClient({
 
 //Use browserRouter to navigate between pages and components
 function App() {
+  const [userName, setUserName] = useState(null);
+  console.log('userName in App component:', userName)
   return (
+    <UserContext.Provider value={{ userName, setUserName }}>
     <ApolloProvider client={client}>
       <Router>
     <div className="App">
@@ -76,6 +80,7 @@ function App() {
     </div>
     </Router>
     </ApolloProvider>
+    </UserContext.Provider>
   );
 }
 

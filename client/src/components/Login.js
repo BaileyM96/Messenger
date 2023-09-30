@@ -5,8 +5,7 @@ import { StyledContainer, Junk } from './styled/Containers.styled';
 import { StyledDivider } from './styled/Dividers.styled';
 import { H1 } from './styled/Headers.styled';
 import { Message } from 'semantic-ui-react';
-//Might delete the errorMessage compnent later we will see
-import { ErrorMessage } from './styled/Error/Error.styled';
+
 
 //Set form changes
 import { useState } from 'react';
@@ -40,7 +39,7 @@ const handleInput = (e) => {
     
 };
 
-//Can not get data from the useMutation module
+
 // Create submit logic
 const handleSubmit = async (event) => {
     event.preventDefault();
@@ -96,7 +95,7 @@ const handleSubmit = async (event) => {
             {credentialError && (
                 <Message 
                 negative
-                header='You have entered a invalid email or password'
+                header='invalid email or password'
                 content={credentialError}
                 />
             )}

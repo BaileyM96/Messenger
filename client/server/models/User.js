@@ -1,10 +1,11 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, default: mongoose } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
     email: {
         type: String,
         required: true,
+        unique: true
     },
     password: {
         type: String,
@@ -13,7 +14,16 @@ const userSchema = new Schema({
     userName: {
         type: String,
         required: true,
-    }
+        unique: true,
+    },
+    friendRequests: [
+        {
+            from: { type: Schema.Types.ObjectId, ref: 'User' },
+            status: { type: String, enum: ['PENDING', 'ACCEPTED', 'DECLINED'], default: 'PENDING' },
+        },
+    ],
+    //The friends field is showing up empty figure out how to add a friend with apollo server to see if it works
+    friends: [{ type: Schema.Types.ObjectId, ref: 'User'}]
 });
 
 userSchema.pre('save', async function (next) {

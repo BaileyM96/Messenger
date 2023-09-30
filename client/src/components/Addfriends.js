@@ -2,10 +2,40 @@ import { FriendsHeader, AddFriend, AddUserContainer, ButtonContainer, Linked } f
 import { H3, H2 } from "./styled/Headers.styled"
 import { Closebutton, StyledButton } from "./styled/Buttons.styled"
 import { MessageTitle } from "./styled/Text.styled"
-import { Input, AddUserInput } from "./styled/Inputs.styled";
+import { AddUserInput } from "./styled/Inputs.styled";
+import { SEND_FRIEND_REQUEST } from "../utils/mutations";
+import { useContext, useState } from "react";
+import { useMutation } from "@apollo/client";
+import UserContext from "./UserContext";
+import { Message } from "semantic-ui-react";
+
+
 
 
 export default function Addfriends() {
+    const { userName } = useContext(UserContext);
+    const [addFriendInput, setAddFriendInput] = useState('');
+    const [sendFriendRequest] = useMutation(SEND_FRIEND_REQUEST);
+    const [requestSentMessage, setRequestSentMessage] = useState('');
+
+
+    const handleAddFriend = async () => {
+        try {
+            const { data } = await sendFriendRequest({ variables: { userName: userName, friendUserName: addFriendInput } });
+            setRequestSentMessage('Friend Request Succesfully Sent!');
+            setAddFriendInput('');
+            setTimeout(() => {
+                setRequestSentMessage('');
+            }, 5000);
+            console.log('data:', data);
+            console.log('friend request sent!:', data);
+        } catch (error) {
+            console.error('Error adding friend:', error);
+            setRequestSentMessage('Failed to send friend request');
+        }
+    }
+
+
     return (
         <>
         <FriendsHeader>
@@ -22,13 +52,21 @@ export default function Addfriends() {
 
         <AddUserContainer>
             <MessageTitle>ADD VIA USERNAME</MessageTitle>
-            <AddUserInput placeholder="Username"></AddUserInput>
+            <AddUserInput 
+            placeholder="Username"
+            value={addFriendInput}
+            onChange={(e) => setAddFriendInput(e.target.value)}
+            />
         </AddUserContainer>
 
-        {/* Need to understand how to send a user a request */}
         <ButtonContainer>
-            <StyledButton>Send Friend Request</StyledButton>
+            <StyledButton onClick={handleAddFriend}>Send Friend Request</StyledButton>
         </ButtonContainer>
+        {requestSentMessage && (
+            <Message positive>
+                <Message.Header>{requestSentMessage}</Message.Header>
+            </Message>
+        )}
         </>
     )
 }
