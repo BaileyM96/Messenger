@@ -10,10 +10,25 @@ query me {
 `;
 
 export const QUERY_USER = gql `
-query user ($email: String!) {
-    user(email: $userName) {
+query user($userName: String) {
+    user(userName: $userName) {
+        friends {
+            _id
+            userName
+        }
+    }
+}
+`;
+
+export const GET_PENDING_FRIEND_REQUESTS = gql`
+query PendingFriendRequests {
+    pendingFriendRequests {
         _id
-        userName
+        from {
+            _id
+            userName
+        }
+        status
     }
 }
 `;

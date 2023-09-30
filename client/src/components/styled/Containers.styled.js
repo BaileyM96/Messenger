@@ -103,3 +103,32 @@ align-items: center;
 justify-content: flex-start;
 padding-left: 20px;
 `;
+
+export const PendingRequests = styled.div`
+display: flex;
+background-color: transparent;
+align-items: center;
+justify-content: flex-start;
+padding-left: 20px;
+padding-bottom: 15px;
+color: white;
+`;
+
+export const PendingRequestsList = styled.div`
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+color: white;
+/* padding-left: 20px; */
+background-color: #1B1C22;
+`;
+
+export const FriendTitle = styled.div`
+display: flex;
+justify-content: flex-start;
+align-items: center;
+padding-left: 20px;
+padding-top: 15px;
+padding-bottom: 15px;
+color: white;
+`;
