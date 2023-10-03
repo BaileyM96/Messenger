@@ -15,7 +15,9 @@ export default function Navbar() {
             <Link to='/Friends'>
                 <AdduserIcon name='add user' size='large'></AdduserIcon>
             </Link>
-            <Avatar src={myImage} avatar />
+            <Link to='/Profile'>
+                <Avatar src={myImage} avatar />
+            </Link>
         </NavbarContainer>
         </>
     )

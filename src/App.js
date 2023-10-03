@@ -5,6 +5,7 @@ import Homepage from './components/Homepage';
 import Friends from './components/Friends';
 import Addfriends from './components/Addfriends';
 import Navbar from './components/Navbar';
+import Profile from './components/ProfilePage/Profile';
 import UserContext from './components/UserContext';
 import { setContext } from '@apollo/client/link/context';
 import { 
@@ -17,6 +18,7 @@ import {
 //Browser Router
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
+
 
 
 const httplink = createHttpLink({
@@ -73,6 +75,11 @@ function App() {
         <Route 
         path='/Addfriends'
         element={<Addfriends />}
+        />
+
+        <Route 
+        path='/Profile'
+        element={<Profile />}
         />
       </Routes>
 
